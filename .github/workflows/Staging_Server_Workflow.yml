@@ -25,10 +25,14 @@ jobs:
           npm -v
 
       - name: Resolve Dependencies
-        run: npm install
+        run: |
+          cd ReactNodeTesting
+          npm install
 
       - name: Build React App
-        run: npm run build-react
+        run: |
+          cd ReactNodeTesting
+          npm run build-react
         
       - name: Deploy Changes to the Staging Server
         uses: burnett01/rsync-deployments@6.0.0

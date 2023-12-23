@@ -25,16 +25,24 @@ jobs:
           npm -v
 
       - name: Resolve Dependencies
-        run: npm install
+        run: |
+          cd ReactNodeTesting
+          npm install
 
       - name: Build React App
-        run: npm run build-react
+        run: |
+          cd ReactNodeTesting
+          npm run build-react
 
       - name: Run tests
-        run: npm run test-react
+        run: |
+          cd ReactNodeTesting
+          npm run test-react
 
       - name: Run Linting
-        run: npx eslint src/**/*.js --ignore-pattern 'App.test.js'
+        run: |
+          cd ReactNodeTesting
+          npx eslint src/**/*.js --ignore-pattern 'App.test.js'
 
       - name: On Failure
         if: ${{ failure() }}
